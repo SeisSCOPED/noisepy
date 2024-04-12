@@ -2,5 +2,5 @@ FROM ghcr.io/seisscoped/container-base:centos7_jupyterlab
 
 LABEL maintainer="Yiyu Ni"
 
-RUN pip install noisepy-seis \
+RUN python -m pip install noisepy-seis \
     && docker-clean

@@ -2,5 +2,5 @@ FROM ghcr.io/seisscoped/container-base:centos7_mpi
 
 LABEL maintainer="Yiyu Ni"
 
-RUN pip install noisepy-seis[mpi] \
+RUN python -m pip install noisepy-seis[mpi] \
     && docker-clean
