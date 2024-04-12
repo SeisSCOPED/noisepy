@@ -1,4 +1,4 @@
-FROM ghcr.io/seisscoped/container-base:centos7_jupyterlab
+FROM ghcr.io/seisscoped/container-base
 
 LABEL maintainer="Yiyu Ni"
 
