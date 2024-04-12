@@ -2,5 +2,7 @@ FROM ghcr.io/seisscoped/container-base:centos7
 
 LABEL maintainer="Yiyu Ni"
 
-RUN /opt/conda/bin/python -m pip install noisepy-seis[mpi] \
-    && docker-clean
+RUN  cd /home/scoped \
+    && git clone --depth=1 https://github.com/noisepy/noisepy.git \
+    && cd noisepy \
+    && pip install ".[dev,mpi,aws]"
