@@ -2,8 +2,7 @@ FROM ghcr.io/seisscoped/container-base:centos7_jupyterlab
 
 LABEL maintainer="Yiyu Ni"
 
-RUN conda config --prepend channels conda-forge \
-    && conda install -y obspy h5py \
+RUN mamba install -y obspy h5py \
     && docker-clean
 
 RUN /opt/conda/bin/python -m pip install noisepy-seis \
