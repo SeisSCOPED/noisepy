@@ -4,5 +4,6 @@ LABEL maintainer="Yiyu Ni"
 
 RUN  cd /home/scoped \
     && git clone --depth=1 https://github.com/noisepy/noisepy.git \
+    && git pull \
     && cd noisepy \
     && pip install ".[dev,aws]"
