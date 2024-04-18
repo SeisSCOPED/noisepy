@@ -6,4 +6,5 @@ RUN  cd /home/scoped \
     && git clone --depth=1 https://github.com/noisepy/noisepy.git \
     && cd noisepy \
     && git pull \
-    && pip install ".[dev,aws]"
+    && pip install ".[dev,aws]" \
+    && docker-clean
