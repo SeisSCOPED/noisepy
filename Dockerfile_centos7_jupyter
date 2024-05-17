@@ -7,4 +7,4 @@ RUN  cd /home/scoped \
     && cd noisepy \
     && git pull \
     && pip install ".[dev,aws]" \
-    && docker-clean
+    && docker-clean 
