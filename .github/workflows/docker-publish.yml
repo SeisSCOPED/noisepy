@@ -46,14 +46,14 @@ jobs:
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Cache Docker layers
-        uses: actions/cache@v2
-        with:
-          path: |
-            /tmp/.buildx-cache-centos7
-          key: ${{ runner.os }}-buildx-centos7-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-centos7-
+      # - name: Cache Docker layers
+        # uses: actions/cache@v2
+        # with:
+          # path: |
+            # /tmp/.buildx-cache-centos7
+          # key: ${{ runner.os }}-buildx-centos7-${{ github.sha }}
+          # restore-keys: |
+            # ${{ runner.os }}-buildx-centos7-
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
@@ -96,13 +96,13 @@ jobs:
             ${{ env.IMAGE_NAME }}:centos7
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:centos7
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=local,src=/tmp/.buildx-cache-centos7
-          cache-to: type=local,dest=/tmp/.buildx-cache-centos7-new
+          # cache-from: type=local,src=/tmp/.buildx-cache-centos7
+          # cache-to: type=local,dest=/tmp/.buildx-cache-centos7-new
       
-      - name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache-centos7 
-          mv /tmp/.buildx-cache-centos7-new /tmp/.buildx-cache-centos7
+      # - name: Move cache
+        # run: |
+          # rm -rf /tmp/.buildx-cache-centos7 
+          # mv /tmp/.buildx-cache-centos7-new /tmp/.buildx-cache-centos7
      
   build-centos-jupyterlab:
 
@@ -126,14 +126,14 @@ jobs:
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Cache Docker layers
-        uses: actions/cache@v2
-        with:
-          path: |
-            /tmp/.buildx-cache-centos7-jupyterlab
-          key: ${{ runner.os }}-buildx-centos7jupyterlab-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-centos7jupyterlab-
+      # - name: Cache Docker layers
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: |
+      #       /tmp/.buildx-cache-centos7-jupyterlab
+      #     key: ${{ runner.os }}-buildx-centos7jupyterlab-${{ github.sha }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-buildx-centos7jupyterlab-
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
@@ -176,10 +176,10 @@ jobs:
             ${{ env.IMAGE_NAME }}:centos7_jupyterlab
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:centos7_jupyterlab
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=local,src=/tmp/.buildx-cache-centos7-jupyterlab
-          cache-to: type=local,dest=/tmp/.buildx-cache-centos7-jupyterlab-new
+          # cache-from: type=local,src=/tmp/.buildx-cache-centos7-jupyterlab
+          # cache-to: type=local,dest=/tmp/.buildx-cache-centos7-jupyterlab-new
       
-      - name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache-centos7-jupyterlab 
-          mv /tmp/.buildx-cache-centos7-jupyterlab-new /tmp/.buildx-cache-centos7-jupyterlab
+      # - name: Move cache
+      #   run: |
+      #     rm -rf /tmp/.buildx-cache-centos7-jupyterlab 
+      #     mv /tmp/.buildx-cache-centos7-jupyterlab-new /tmp/.buildx-cache-centos7-jupyterlab
